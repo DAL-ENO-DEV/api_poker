@@ -24,6 +24,20 @@ export class PartyTablesController {
   findOne(@Param('position') position: number) {
     return this.partyTablesService.getPartyOneTable(position);
   }
+
+  @Post()
+  createOne(
+    @Body('name') name: string,
+    @Body('nb_players') nb_players: number = 0,
+    @Body('nb_max_players') nb_max_players: number = 5,
+  ) {
+    return this.partyTablesService.createTable(
+      name,
+      nb_players,
+      nb_max_players,
+    );
+  }
+
   @Get()
   findAll() {
     return this.partyTablesService.getAll();
