@@ -19,10 +19,10 @@ export class PartyTablesController {
     this.partyTablesService = partyTablesService;
   }
 
-  @Get(':position')
+  @Get(':id')
   @HttpCode(HttpStatus.OK)
-  findOne(@Param('position') position: number) {
-    return this.partyTablesService.getPartyOneTable(position);
+  findOne(@Param('id') id: number) {
+    return this.partyTablesService.getPartyOneTable(id);
   }
 
   @Post()
